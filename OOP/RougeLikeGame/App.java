@@ -1,6 +1,8 @@
 package OOP.RougeLikeGame;
 
 public class App {
-    Game game = new Game();
-    game.run();
+    public static void main(String[] args) {
+        Game game = new Game();
+        game.run();
+    }
 }

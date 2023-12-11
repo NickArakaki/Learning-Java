@@ -77,29 +77,22 @@ public class Game {
 
         switch (move.charAt(0)) {
             case 'W':
-                if (hero.getY() - 1 >= 0) {
-                    hero.moveUp();
-                }
+                hero.moveUp();
                 break;
             case 'A':
-                if (hero.getX() - 1 >= 0) {
-                    hero.moveLeft();
-                }
+                hero.moveLeft();
                 break;
             case 'S':
-                if (hero.getY() + 1 < WIDTH) {
-                    hero.moveDown();
-                }
+                hero.moveDown();
                 break;
             case 'D':
-                if (hero.getX() + 1 < WIDTH) {
-                    hero.moveRight();
-                }
+                hero.moveRight();
                 break;
         }
 
-        if (hero.getX() < 0 || hero.getX() >= WIDTH) {
+        if (hero.getX() < 0 || hero.getX() >= WIDTH || hero.getY() < 0 || hero.getY() >= WIDTH) {
             System.out.println(hero.getName() + " touched lava! You lose.");
+            isOver = true;
         } else if (hero.getX() == treasure.getX() && hero.getY() == treasure.getY()) {
             System.out.println(hero.getName() + " found the treasure! You win.");
             isOver = true;
